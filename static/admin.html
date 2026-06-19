@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>祝文 | 後台管理 Cockpit - 傳承地方手藝與歲時記憶</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <a href="index.html" class="brand-header-group">
+            <div class="brand-stamp">祝</div>
+            <div class="logo-container">
+                <span class="brand-name">祝文</span>
+                <span class="brand-slogan">後台管理中心</span>
+            </div>
+        </a>
+        <nav>
+            <a href="index.html">返回前台首頁</a>
+        </nav>
+    </header>
+
+    <div class="container" style="margin-top: 40px;">
+        <div class="section-title" style="text-align: left; margin-bottom: 30px;">
+            <h2>祝文美食坊營運大看板</h2>
+        </div>
+
+        <!-- Metric Row -->
+        <div class="dashboard-grid">
+            <div class="metric-card">
+                <span class="metric-lbl">累計銷售總額</span>
+                <span class="metric-val" id="metric-revenue">NT$ 0</span>
+                <span class="metric-desc">手作單次選購與定期訂閱盒總和</span>
+            </div>
+            <div class="metric-card">
+                <span class="metric-lbl">累計收到訂單</span>
+                <span class="metric-val" id="metric-orders">0 筆</span>
+                <span class="metric-desc">含單次購買及手作箱訂閱用戶</span>
+            </div>
+            <div class="metric-card">
+                <span class="metric-lbl">出貨進度</span>
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 5px;">
+                    <span class="metric-val" id="metric-ship-rate">0%</span>
+                    <!-- Circular SVG Progress Bar -->
+                    <svg class="progress-circle" id="svg-progress">
+                        <circle class="progress-circle-bg" cx="30" cy="30" r="25"></circle>
+                        <circle class="progress-circle-bar" cx="30" cy="30" r="25" stroke-dasharray="157" stroke-dashoffset="157" id="progress-bar"></circle>
+                    </svg>
+                </div>
+                <span class="metric-desc" id="metric-ship-desc">已出貨 0 筆 / 待出貨 0 筆</span>
+            </div>
+            <div class="metric-card">
+                <span class="metric-lbl">出爐通知訂閱數</span>
+                <span class="metric-val" id="metric-subs">0 人</span>
+                <span class="metric-desc">訂閱出爐提醒之客戶通訊名單</span>
+            </div>
+        </div>
+
+        <!-- Tabs Menu -->
+        <div class="tabs-header">
+            <button class="tab-btn active" onclick="switchTab('orders-tab', this)">訂單管理工作流</button>
+            <button class="tab-btn" onclick="switchTab('subs-tab', this)">出爐提醒訂閱名冊</button>
+            <button class="tab-btn" onclick="switchTab('broadcast-tab', this)">發送出爐提示廣播</button>
+        </div>
+
+        <!-- Tab 1: Orders -->
+        <div id="orders-tab" class="tab-panel active">
+            <div class="data-table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>訂單編號</th>
+                            <th>收件人姓名</th>
+                            <th>聯絡手機</th>
+                            <th>配送地址</th>
+                            <th>選購品項與數量</th>
+                            <th>訂單類型</th>
+                            <th>金額</th>
+                            <th>狀態</th>
+                            <th>下單時間</th>
+                            <th>管理與出貨動作</th>
+                        </tr>
+                    </thead>
+                    <tbody id="orders-tbody">
+                        <!-- Populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Tab 2: Subscribers -->
+        <div id="subs-tab" class="tab-panel">
+            <div class="data-table-container" style="max-width: 700px;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>訂閱者電子信箱</th>
+                            <th>手機號碼</th>
+                            <th>訂閱註冊時間</th>
+                        </tr>
+                    </thead>
+                    <tbody id="subs-tbody">
+                        <!-- Populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Tab 3: Broadcast Notifications -->
+        <div id="broadcast-tab" class="tab-panel">
+            <div class="broadcast-box">
+                <h3>出爐動態消息推播</h3>
+                <p style="margin-bottom: 20px; font-size: 13px; color: #666;">編輯下方消息後，系統將模擬發送通知訊息給所有已訂閱的客戶名單。訊息將被寫入系統日誌（可在 Python 後台終端機確認）。</p>
+                <div class="form-group">
+                    <label for="broadcast-msg">通知內容</label>
+                    <textarea id="broadcast-msg" class="form-control" rows="4" placeholder="例如：【祝文手作】今日剛出爐的全麥饅頭已包裝完畢，下午三點將陸續低溫宅配發貨，請注意收件！" style="resize: none;"></textarea>
+                </div>
+                <button class="btn-primary" onclick="sendBroadcast()" style="margin-top: 10px;">確認廣播發送</button>
+                <div id="broadcast-status" style="margin-top: 15px; font-weight: bold; color: var(--temple-red); display: none;"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Tab switching logic
+        function switchTab(tabId, btn) {
+            const panels = document.querySelectorAll('.tab-panel');
+            panels.forEach(p => p.classList.remove('active'));
+            
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(b => b.classList.remove('active'));
+            
+            document.getElementById(tabId).classList.add('active');
+            btn.classList.add('active');
+        }
+
+        // Fetch Dashboard stats and tables
+        async function fetchDashboard() {
+            try {
+                // 1. Settlement Metrics
+                const rSet = await fetch('/api/settlement');
+                const dSet = await rSet.json();
+                
+                document.getElementById('metric-revenue').innerText = 'NT$ ' + dSet.total_revenue.toLocaleString();
+                document.getElementById('metric-orders').innerText = dSet.total_orders + ' 筆';
+                document.getElementById('metric-subs').innerText = dSet.subscribers_count + ' 人';
+                
+                // Ship rate calc
+                const total = dSet.total_orders;
+                const shipped = dSet.shipped_count;
+                const pending = dSet.pending_count;
+                const rate = total > 0 ? Math.round((shipped / total) * 100) : 0;
+                
+                document.getElementById('metric-ship-rate').innerText = rate + '%';
+                document.getElementById('metric-ship-desc').innerText = '已出貨 ' + shipped + ' 筆 / 待出貨 ' + pending + ' 筆';
+                
+                // SVG circular stroke animation
+                const circle = document.getElementById('progress-bar');
+                const radius = 25;
+                const circumference = 2 * Math.PI * radius; // ~157
+                const offset = circumference - (rate / 100) * circumference;
+                circle.style.strokeDashoffset = offset;
+
+                // 2. Orders Table
+                const rOrd = await fetch('/api/orders');
+                const dOrd = await rOrd.json();
+                const ordersTbody = document.getElementById('orders-tbody');
+                ordersTbody.innerHTML = '';
+                
+                if(dOrd.length === 0) {
+                    ordersTbody.innerHTML = '<tr><td colspan="10" style="text-align:center;">目前尚無任何訂單資料</td></tr>';
+                } else {
+                    // Show newest first
+                    dOrd.slice().reverse().forEach(o => {
+                        const tr = document.createElement('tr');
+                        
+                        let itemHtml = '';
+                        o.items.forEach(it => {
+                            itemHtml += `<div>${it.name} x ${it.qty}</div>`;
+                        });
+                        
+                        const badgeType = o.type === 'subscription' ? 'badge sub' : 'badge single';
+                        const typeText = o.type === 'subscription' ? '手作箱訂閱' : '單次選購';
+                        
+                        const statusBadge = o.status === 'Shipped' ? 'badge shipped' : 'badge pending';
+                        const statusText = o.status === 'Shipped' ? '已出貨' : '待處理';
+                        
+                        let actionBtn = '';
+                        if(o.status === 'Pending') {
+                            actionBtn = `<button class="btn-ship" onclick="markAsShipped('${o.id}')">確認出貨</button>`;
+                        } else {
+                            actionBtn = `
+                                <div style="display:flex; flex-direction:column; gap:4px; align-items: flex-start;">
+                                    <span style="font-size:11px; color:#888; font-weight:600;">已完成 (${o.shipped_time.split(' ')[1] || ''})</span>
+                                    <span class="time-seal-ribbon">【祝文歲時手作】[ 合 ] 准予出貨</span>
+                                </div>
+                            `;
+                        }
+
+                        tr.innerHTML = `
+                            <td style="font-weight:bold; color:var(--temple-red);">${o.id}</td>
+                            <td>${o.customer_name}</td>
+                            <td>${o.phone}</td>
+                            <td style="max-width:200px; font-size:12px;">${o.address}</td>
+                            <td>${itemHtml}</td>
+                            <td><span class="${badgeType}">${typeText}</span></td>
+                            <td style="font-weight:bold;">NT$ ${o.amount}</td>
+                            <td><span class="${statusBadge}">${statusText}</span></td>
+                            <td style="font-size:12px; color:#666;">${o.time}</td>
+                            <td>${actionBtn}</td>
+                        `;
+                        ordersTbody.appendChild(tr);
+                    });
+                }
+
+                // 3. Subscribers Table
+                const rSub = await fetch('/api/subscribers');
+                const dSub = await rSub.json();
+                const subsTbody = document.getElementById('subs-tbody');
+                subsTbody.innerHTML = '';
+                
+                if(dSub.length === 0) {
+                    subsTbody.innerHTML = '<tr><td colspan="3" style="text-align:center;">目前尚無任何訂閱者資料</td></tr>';
+                } else {
+                    dSub.slice().reverse().forEach(s => {
+                        const tr = document.createElement('tr');
+                        tr.innerHTML = `
+                            <td>${s.email || '-'}</td>
+                            <td>${s.phone || '-'}</td>
+                            <td style="font-size:12px; color:#666;">${s.time}</td>
+                        `;
+                        subsTbody.appendChild(tr);
+                    });
+                }
+
+            } catch (err) {
+                console.error("Error loading dashboard data", err);
+            }
+        }
+
+        // Ship action handler
+        async function markAsShipped(orderId) {
+            if(!confirm("確定要將訂單 " + orderId + " 貼上【時光封條】並確認出貨嗎？")) return;
+            try {
+                const response = await fetch('/api/order/ship', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({order_id: orderId})
+                });
+                const result = await response.json();
+                if(result.status === 'success') {
+                    fetchDashboard();
+                } else {
+                    alert("出貨狀態修改失敗: " + result.message);
+                }
+            } catch (err) {
+                alert("網路錯誤，操作失敗！");
+            }
+        }
+
+        // Broadcast notifications
+        async function sendBroadcast() {
+            const message = document.getElementById('broadcast-msg').value;
+            const statusEl = document.getElementById('broadcast-status');
+            if(!message) {
+                alert("請先輸入要廣播的通知內容！");
+                return;
+            }
+            
+            try {
+                const response = await fetch('/api/send_notification', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({message})
+                });
+                const result = await response.json();
+                if(result.status === 'success') {
+                    statusEl.innerText = "廣播成功！已向 " + result.sent_count + " 位訂閱用戶發送模擬訊息，詳情見後端日誌。";
+                    statusEl.style.display = "block";
+                    document.getElementById('broadcast-msg').value = '';
+                    setTimeout(() => statusEl.style.display = "none", 5000);
+                } else {
+                    alert("廣播失敗：" + result.message);
+                }
+            } catch (err) {
+                alert("網路錯誤，發送失敗！");
+            }
+        }
+
+        // Init page
+        fetchDashboard();
+        // Auto refresh stats every 15 seconds
+        setInterval(fetchDashboard, 15000);
+    </script>
+</body>
+</html>

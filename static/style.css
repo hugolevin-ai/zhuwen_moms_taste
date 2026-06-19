@@ -1,0 +1,783 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Noto+Serif+TC:wght@400;700;900&display=swap');
+
+:root {
+    --temple-red: #B22222;
+    --harvest-yellow: #E6A15C;
+    --paper-white: #FDFBF7;
+    --ink-black: #2C2C2C;
+    --glass-bg: rgba(253, 251, 247, 0.96);
+    --glass-border: rgba(44, 44, 44, 0.12);
+    --shadow-light: rgba(44, 44, 44, 0.05);
+    --shadow-dark: rgba(44, 44, 44, 0.12);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--paper-white);
+    /* Vintage manuscript paper vertical lines effect */
+    background-image: linear-gradient(90deg, rgba(178, 34, 34, 0.015) 1px, transparent 1px);
+    background-size: 20px 100%;
+    font-family: 'Outfit', 'Noto Serif TC', sans-serif;
+    color: var(--ink-black);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Header & Brand Stamp Logo */
+header {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    border-bottom: 2px solid var(--temple-red);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 30px var(--shadow-light);
+}
+
+.brand-header-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.brand-stamp {
+    width: 48px;
+    height: 48px;
+    background-color: var(--temple-red);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(178, 34, 34, 0.35);
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 900;
+    font-size: 21px;
+    color: #fff;
+    border: 3px double #FDFBF7;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    transform: rotate(-6deg); /* Styled organic stamp rotation */
+    user-select: none;
+}
+
+.logo-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.brand-name {
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 900;
+    font-size: 28px;
+    letter-spacing: 3px;
+    color: var(--ink-black);
+    line-height: 1.0;
+}
+
+.brand-phonetic {
+    font-family: 'Outfit', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--temple-red);
+    letter-spacing: 2px;
+    margin-left: 8px;
+    text-transform: uppercase;
+}
+
+.brand-slogan {
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    color: var(--temple-red);
+    margin-top: 5px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--ink-black);
+    font-weight: 600;
+    font-size: 14px;
+    transition: var(--transition);
+    letter-spacing: 1px;
+}
+
+nav a:hover {
+    color: var(--temple-red);
+}
+
+.btn-header {
+    background: linear-gradient(135deg, var(--temple-red), #900c0c);
+    color: #fff !important;
+    padding: 8px 20px;
+    border-radius: 4px; /* Blocky traditional tag style */
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(178, 34, 34, 0.2);
+    border: 1px solid var(--temple-red);
+}
+
+.btn-header:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(178, 34, 34, 0.3);
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    padding: 0 20px;
+    overflow: hidden;
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: linear-gradient(rgba(44, 44, 44, 0.5), rgba(44, 44, 44, 0.75)), url('images/hero.png');
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+    transform: scale(1.03);
+    transition: transform 5s ease-out;
+}
+
+.hero-section:hover .hero-bg {
+    transform: scale(1);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    animation: fadeInUp 1s ease-out;
+    border: 3px double #fff;
+    padding: 40px 60px;
+    background: rgba(44, 44, 44, 0.35);
+    backdrop-filter: blur(4px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.hero-content h1 {
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 900;
+    font-size: 64px;
+    letter-spacing: 12px;
+    margin-bottom: 12px;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+.hero-content p {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--harvest-yellow);
+    letter-spacing: 4px;
+    margin-bottom: 30px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 12px 35px;
+    background: linear-gradient(135deg, var(--temple-red), #900c0c);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 4px; /* Blocky shop sign style */
+    box-shadow: 0 4px 15px rgba(178, 34, 34, 0.35);
+    border: 1px solid var(--temple-red);
+    cursor: pointer;
+    transition: var(--transition);
+    letter-spacing: 1px;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(178, 34, 34, 0.5);
+}
+
+/* Section Plaque Signboards (匾額設計) */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 80px auto;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-title h2 {
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 900;
+    font-size: 32px;
+    color: var(--temple-red);
+    border: 2px solid var(--temple-red);
+    padding: 8px 35px;
+    border-radius: 2px;
+    background: var(--glass-bg);
+    box-shadow: 0 4px 15px var(--shadow-light);
+    display: inline-block;
+    letter-spacing: 4px;
+    position: relative;
+}
+
+/* Vintage double border decoration inside plaque */
+.section-title h2::before {
+    content: "";
+    position: absolute;
+    top: 3px; left: 3px; right: 3px; bottom: 3px;
+    border: 1px solid var(--temple-red);
+    pointer-events: none;
+}
+
+/* Product Section & Cards */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 40px;
+}
+
+.product-card {
+    background: var(--glass-bg);
+    border: 2px solid var(--glass-border);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px var(--shadow-light);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px var(--shadow-dark);
+    border-color: var(--temple-red);
+}
+
+.product-img {
+    height: 250px;
+    overflow: hidden;
+    position: relative;
+    border-bottom: 2px solid var(--glass-border);
+}
+
+.product-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.product-card:hover .product-img img {
+    transform: scale(1.05);
+}
+
+/* Artisan Signature Seal (落款章) - Relocated to top-right of image to avoid overlaps */
+.artisan-seal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 10;
+    width: 50px;
+    height: 50px;
+    border: 2.5px solid var(--temple-red);
+    color: var(--temple-red);
+    background-color: #fff;
+    font-family: 'Noto Serif TC', serif;
+    font-size: 11px;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1.15;
+    border-radius: 4px;
+    transform: rotate(-8deg); /* Organic stamped tilt */
+    box-shadow: 0 4px 10px rgba(178, 34, 34, 0.2);
+    pointer-events: none;
+    user-select: none;
+}
+
+.product-info {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.product-info h3 {
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 900;
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: var(--ink-black);
+    border-bottom: 1px dashed var(--glass-border);
+    padding-bottom: 8px;
+}
+
+.product-desc {
+    font-size: 14px;
+    color: #444;
+    margin-bottom: 25px;
+    flex-grow: 1;
+    text-align: justify;
+}
+
+.product-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+
+.product-price {
+    font-size: 21px;
+    font-weight: 900;
+    color: var(--temple-red);
+}
+
+.product-price span {
+    font-size: 12px;
+    color: #666;
+    font-weight: 400;
+}
+
+.btn-card {
+    background: transparent;
+    border: 1.5px solid var(--temple-red);
+    color: var(--temple-red);
+    padding: 8px 20px;
+    border-radius: 4px; /* Blocky label style */
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-card:hover {
+    background: var(--temple-red);
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(178, 34, 34, 0.2);
+}
+
+/* Subscription Box Banner */
+.sub-banner {
+    background: linear-gradient(135deg, rgba(44, 44, 44, 0.95), rgba(178, 34, 34, 0.9)), url('images/hero.png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+    border: 2px solid var(--temple-red);
+    padding: 55px 6%;
+    color: #fff;
+    box-shadow: 0 20px 45px var(--shadow-dark);
+    margin-top: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.sub-banner-text {
+    max-width: 600px;
+}
+
+.sub-banner-text h3 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--harvest-yellow);
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+}
+
+.sub-banner-text p {
+    font-size: 15px;
+    opacity: 0.95;
+    margin-bottom: 15px;
+    line-height: 1.8;
+}
+
+/* Modals */
+.modal {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(44, 44, 44, 0.4);
+    backdrop-filter: blur(8px);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: var(--transition);
+}
+
+.modal.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-content {
+    background: var(--paper-white);
+    border: 2px solid var(--temple-red);
+    border-radius: 12px;
+    width: 90%;
+    max-width: 520px;
+    padding: 35px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    position: relative;
+    transform: scale(0.92);
+    transition: var(--transition);
+}
+
+.modal.active .modal-content {
+    transform: scale(1);
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--ink-black);
+    opacity: 0.4;
+    transition: var(--transition);
+}
+
+.modal-close:hover {
+    opacity: 1;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid var(--glass-border);
+    background: #fff;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 14px;
+    color: var(--ink-black);
+    outline: none;
+    transition: var(--transition);
+}
+
+.form-control:focus {
+    border-color: var(--temple-red);
+    box-shadow: 0 0 0 3px rgba(178, 34, 34, 0.12);
+}
+
+/* Footer Section */
+footer {
+    background: var(--ink-black);
+    color: rgba(253, 251, 247, 0.75);
+    padding: 60px 5% 30px;
+    font-size: 13px;
+    border-top: 4px solid var(--temple-red);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto 40px;
+}
+
+.footer-col h4 {
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 700;
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.footer-col p {
+    line-height: 1.8;
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    color: inherit;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.footer-col ul li a:hover {
+    color: var(--harvest-yellow);
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid rgba(253, 251, 247, 0.08);
+    padding-top: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* === BACKEND DASHBOARD (admin.html) === */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.metric-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(8px);
+    border: 2px solid var(--glass-border);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px var(--shadow-light);
+    display: flex;
+    flex-direction: column;
+}
+
+.metric-lbl {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--harvest-yellow);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.metric-val {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--temple-red);
+    margin: 8px 0;
+}
+
+.metric-desc {
+    font-size: 12px;
+    color: #666;
+}
+
+/* Tabs System */
+.tabs-header {
+    display: flex;
+    border-bottom: 1px solid var(--glass-border);
+    margin-bottom: 30px;
+    gap: 10px;
+}
+
+.tab-btn {
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid transparent;
+    padding: 10px 20px;
+    font-weight: 600;
+    font-size: 15px;
+    color: #666;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.tab-btn.active {
+    color: var(--temple-red);
+    border-bottom-color: var(--temple-red);
+}
+
+.tab-panel {
+    display: none;
+    animation: fadeInUp 0.4s ease-out;
+}
+
+.tab-panel.active {
+    display: block;
+}
+
+/* Tables & Lists */
+.data-table-container {
+    background: var(--glass-bg);
+    border: 2px solid var(--glass-border);
+    border-radius: 12px;
+    overflow-x: auto;
+    box-shadow: 0 4px 15px var(--shadow-light);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 14px;
+}
+
+th, td {
+    padding: 15px 20px;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+th {
+    background: rgba(44, 44, 44, 0.02);
+    font-weight: 600;
+    color: var(--ink-black);
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+.badge {
+    display: inline-block;
+    padding: 3px 8px;
+    font-size: 11px;
+    font-weight: 600;
+    border-radius: 10px;
+}
+
+.badge.pending {
+    background: rgba(230, 161, 92, 0.12);
+    color: var(--harvest-yellow);
+    border: 1px solid var(--harvest-yellow);
+}
+
+.badge.shipped {
+    background: rgba(178, 34, 34, 0.12);
+    color: var(--temple-red);
+    border: 1px solid var(--temple-red);
+}
+
+.badge.sub {
+    background: rgba(44, 44, 44, 0.05);
+    color: var(--ink-black);
+}
+
+.badge.single {
+    background: rgba(0, 0, 0, 0.03);
+    color: #666;
+}
+
+.btn-ship {
+    background: var(--temple-red);
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(178, 34, 34, 0.2);
+    transition: var(--transition);
+}
+
+.btn-ship:hover {
+    background: #900c0c;
+    box-shadow: 0 4px 10px rgba(178, 34, 34, 0.35);
+}
+
+/* SVG circular progress indicator */
+.progress-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.progress-circle {
+    width: 60px;
+    height: 60px;
+}
+
+.progress-circle-bg {
+    fill: none;
+    stroke: rgba(44, 44, 44, 0.05);
+    stroke-width: 4px;
+}
+
+.progress-circle-bar {
+    fill: none;
+    stroke: var(--temple-red);
+    stroke-width: 4px;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.8s ease-in-out;
+}
+
+/* Notification Broadcaster Area */
+.broadcast-box {
+    background: var(--glass-bg);
+    border: 2px solid var(--glass-border);
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px var(--shadow-light);
+    max-width: 600px;
+}
+
+.broadcast-box h3 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: var(--temple-red);
+}
+
+/* Time Seal Ribbon (時光封條) */
+.time-seal-ribbon {
+    display: block;
+    margin-top: 8px;
+    font-family: 'Consolas', 'Noto Serif TC', monospace;
+    font-size: 10px;
+    color: var(--temple-red);
+    background: rgba(178, 34, 34, 0.06);
+    border: 1px dashed var(--temple-red);
+    padding: 4px 10px;
+    border-radius: 3px;
+    letter-spacing: 0.5px;
+    text-align: center;
+}

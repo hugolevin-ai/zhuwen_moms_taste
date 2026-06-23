@@ -263,7 +263,9 @@ class WebRequestHandler(BaseHTTPRequestHandler):
             ".jpg": "image/jpeg",
             ".jpeg": "image/jpeg",
             ".json": "application/json; charset=utf-8",
-            ".svg": "image/svg+xml"
+            ".svg": "image/svg+xml",
+            ".mp3": "audio/mpeg",
+            ".wav": "audio/wav"
         }
         content_type = mime_types.get(ext, "application/octet-stream")
         
@@ -284,7 +286,7 @@ def run():
     init_files()
     server_address = ('', PORT)
     httpd = ThreadingHTTPServer(server_address, WebRequestHandler)
-    print(f"\n[SERVER] Zhuwen Mom's Taste Server running on http://localhost:{PORT}")
+    print(f"\n[SERVER] Tsubun Select (鑄文選物) Server running on http://localhost:{PORT}")
     print(f"[SERVER] Press Ctrl+C to stop.\n")
     try:
         httpd.serve_forever()

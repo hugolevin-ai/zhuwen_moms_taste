@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>祝文 | 傳承地方手藝與歲時記憶 - 職人手作美食平台</title>
+    <title>鑄文選物 | 以歲月落款，用時光鑄文 - 熟齡職人手作平台</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,16 +11,16 @@
     <!-- Header Navigation -->
     <header>
         <a href="index.html" class="brand-header-group">
-            <div class="brand-stamp">祝</div>
+            <div class="brand-stamp">鑄</div>
             <div class="logo-container">
-                <span class="brand-name">祝文</span>
-                <span class="brand-slogan">傳承地方手藝與歲時記憶</span>
+                <span class="brand-name">鑄文選物</span>
+                <span class="brand-slogan">以歲月落款，用時光鑄文</span>
             </div>
         </a>
         <nav>
-            <a href="#products">手作美食</a>
-            <a href="#subscriptions">溫馨訂閱</a>
-            <a href="#newsletter">最新消息</a>
+            <a href="#products">歲時案頭</a>
+            <a href="#subscriptions">歲時孝親訂閱</a>
+            <a href="#newsletter">出爐通知</a>
             <a href="admin.html" class="btn-header">後台管理</a>
         </nav>
     </header>
@@ -29,29 +29,33 @@
     <section class="hero-section">
         <div class="hero-bg"></div>
         <div class="hero-content">
-            <h1>祝文</h1>
-            <p>傳承地方手藝與歲時記憶</p>
-            <a href="#products" class="btn-primary">探索在地美味</a>
+            <h1>鑄文選物</h1>
+            <p>以歲月落款，用時光鑄文</p>
+            <a href="#products" class="btn-primary">探索歲時好滋味</a>
         </div>
     </section>
 
     <!-- Product Showcase -->
     <section class="container" id="products">
         <div class="section-title">
-            <h2>嚴選職人手作美食</h2>
+            <h2>歲時案頭 ╳ 熟齡職人手作</h2>
         </div>
         <div class="product-grid">
             <!-- Product 1: Mrs. Lin Pickled Cucumber -->
             <div class="product-card">
                 <div class="product-img">
-                    <img src="images/cucumber.png" alt="桃園 林媽媽手作脆瓜">
+                    <img src="images/cucumber.png" alt="桃園 林媽媽 ｜ 手作甘甜脆瓜">
                 </div>
                 <div class="product-info">
-                    <h3>桃園 林媽媽 手作脆瓜 (大罐裝)</h3>
-                    <p class="product-desc">選用在地小農新鮮現採無毒胡瓜，經林媽媽古法手工醃漬與醬汁調配，口感清脆、甘甜入味，是配粥配飯的溫暖家常滋味。</p>
+                    <h3>桃園 林媽媽 ｜ 手作甘甜脆瓜</h3>
+                    <p class="product-desc">下飯的靈魂夥伴、早餐稀飯的完美句點。選用在地小黃瓜、純釀造醬油、天然冰糖，經時間醃漬出清脆甘甜的經典滋味。</p>
+                    <div class="radio-broadcast-player" onclick="toggleRadioPlayer(this, 'lin_cucumber')">
+                        <span class="radio-player-icon">📻</span>
+                        <span class="radio-player-text">收聽電台推薦（經典電台腔）</span>
+                    </div>
                     <div class="product-meta">
-                        <span class="product-price">NT$ 220 <span>/ 罐</span></span>
-                        <button class="btn-card" onclick="openOrderModal('桃園 林媽媽 手作脆瓜 (大罐裝)', 220, 'single')">立即選購</button>
+                        <span class="product-price">NT$ 250 <span>/ 罐</span></span>
+                        <button class="btn-card" onclick="openOrderModal('桃園 林媽媽 ｜ 手作甘甜脆瓜', 250, 'single')">立即選購</button>
                     </div>
                     <div class="artisan-seal">林媽媽<br>印</div>
                 </div>
@@ -60,30 +64,38 @@
             <!-- Product 2: Mrs. Ying-Xue Steamed Buns -->
             <div class="product-card">
                 <div class="product-img">
-                    <img src="images/buns.png" alt="桃園 映雪媽媽的饅頭">
+                    <img src="images/buns.png" alt="桃園 映雪媽媽 ｜ 堅持手作老麵饅頭 (6顆裝)">
                 </div>
                 <div class="product-info">
-                    <h3>桃園 映雪媽媽的饅頭 (6顆裝)</h3>
-                    <p class="product-desc">採用老麵低溫發酵，加入嚴選小麥粉，映雪媽媽純手工反覆揉製而成。饅頭口感紮實有嚼勁，散發純粹的天然麥香與老麵甘甜。</p>
+                    <h3>桃園 映雪媽媽 ｜ 堅持手作老麵饅頭 (6顆裝)</h3>
+                    <p class="product-desc">無添加物、拜拜祭祀或都市家庭早晨的暖胃首選。採用鼎泰豐指定老麵麵粉與過濾水，竹蒸籠蒸出老麵的天然麥香與甘甜。</p>
+                    <div class="radio-broadcast-player" onclick="toggleRadioPlayer(this, 'yingxue_buns')">
+                        <span class="radio-player-icon">📻</span>
+                        <span class="radio-player-text">收聽電台推薦（經典電台腔）</span>
+                    </div>
                     <div class="product-meta">
                         <span class="product-price">NT$ 180 <span>/ 袋</span></span>
-                        <button class="btn-card" onclick="openOrderModal('桃園 映雪媽媽的饅頭 (6顆裝)', 180, 'single')">立即選購</button>
+                        <button class="btn-card" onclick="openOrderModal('桃園 映雪媽媽 ｜ 堅持手作老麵饅頭 (6顆裝)', 180, 'single')">立即選購</button>
                     </div>
                     <div class="artisan-seal">映雪<br>手作</div>
                 </div>
             </div>
-
+            
             <!-- Product 3: Linkou Brother Er Chili Sauce -->
             <div class="product-card">
                 <div class="product-img">
-                    <img src="images/chili.png" alt="林口 二哥辣椒醬">
+                    <img src="images/chili.png" alt="林口 二哥 ｜ 純手工蒜蓉朝天椒醬">
                 </div>
                 <div class="product-info">
-                    <h3>林口 二哥辣椒醬</h3>
-                    <p class="product-desc">選用林口契作鮮紅與青綠辣椒，加上新鮮大蒜與特調香油，二哥親自以慢火熬煮而成。辣而不燥、麻香濃郁，是桌上必備調味佳品。</p>
+                    <h3>林口 二哥 ｜ 純手工蒜蓉朝天椒醬</h3>
+                    <p class="product-desc">無添加防腐劑的嗜辣者聖品、拌麵備料神隊友。選用自家栽種朝天椒、新鮮蒜頭與高樹純香油，手切辣椒層次分明、辣香濃郁。</p>
+                    <div class="radio-broadcast-player" onclick="toggleRadioPlayer(this, 'er_chili')">
+                        <span class="radio-player-icon">📻</span>
+                        <span class="radio-player-text">收聽電台推薦（經典電台腔）</span>
+                    </div>
                     <div class="product-meta">
                         <span class="product-price">NT$ 250 <span>/ 罐</span></span>
-                        <button class="btn-card" onclick="openOrderModal('林口 二哥辣椒醬', 250, 'single')">立即選購</button>
+                        <button class="btn-card" onclick="openOrderModal('林口 二哥 ｜ 純手工蒜蓉朝天椒醬', 250, 'single')">立即選購</button>
                     </div>
                     <div class="artisan-seal">二哥<br>手作</div>
                 </div>
@@ -92,14 +104,18 @@
             <!-- Product 4: Chiayi Second Sister Peanut Candy -->
             <div class="product-card">
                 <div class="product-img">
-                    <img src="images/peanuts.png" alt="嘉義 二姊花生糖">
+                    <img src="images/peanuts.png" alt="嘉義 二姊 ｜ 「好事會花生」手工花生糖">
                 </div>
                 <div class="product-info">
-                    <h3>嘉義 二姊花生糖</h3>
-                    <p class="product-desc">嚴選嘉義在地花生，粒粒飽滿香濃，裹上二姊特製醇郁的麥芽糖衣。口感香甜酥脆不黏牙，口口都散發濃郁的古早味花生香氣。</p>
+                    <h3>嘉義 二姊 ｜ 「好事會花生」手工花生糖</h3>
+                    <p class="product-desc">年節祭祀神明求好運、現代文青茶點與歡樂相聚零嘴。嚴選北港精選花生，裹上純小麥麥芽糖與微量海鹽，酥脆香濃且完全不黏牙。</p>
+                    <div class="radio-broadcast-player" onclick="toggleRadioPlayer(this, 'erjie_peanuts')">
+                        <span class="radio-player-icon">📻</span>
+                        <span class="radio-player-text">收聽電台推薦（經典電台腔）</span>
+                    </div>
                     <div class="product-meta">
                         <span class="product-price">NT$ 150 <span>/ 包</span></span>
-                        <button class="btn-card" onclick="openOrderModal('嘉義 二姊花生糖', 150, 'single')">立即選購</button>
+                        <button class="btn-card" onclick="openOrderModal('嘉義 二姊 ｜ 「好事會花生」手工花生糖', 150, 'single')">立即選購</button>
                     </div>
                     <div class="artisan-seal">二姊<br>手作</div>
                 </div>
@@ -108,14 +124,18 @@
             <!-- Product 5: Chiayi Director Chen Mala Beef Shank -->
             <div class="product-card">
                 <div class="product-img">
-                    <img src="images/beef.png" alt="嘉義 陳主任麻辣牛腱">
+                    <img src="images/beef.png" alt="嘉義 陳主任 ｜ 歡樂時光麻辣牛腱">
                 </div>
                 <div class="product-info">
-                    <h3>嘉義 陳主任麻辣牛腱</h3>
-                    <p class="product-desc">採用秘製中藥滷汁慢火滷製，切片後淋上特調大紅袍花椒油，香麻帶勁。肉質厚實多汁，是家庭聚會與宵夜下酒菜的最佳拍檔。</p>
+                    <h3>嘉義 陳主任 ｜ 歡樂時光麻辣牛腱</h3>
+                    <p class="product-desc">週末小酌下酒大菜、都市白領冰箱的味覺誠實解藥。精選美澳牛腱心，經獨門漢方滷包與四川花椒「三滷三燜」慢火滷透，香麻帶勁。</p>
+                    <div class="radio-broadcast-player" onclick="toggleRadioPlayer(this, 'chen_beef')">
+                        <span class="radio-player-icon">📻</span>
+                        <span class="radio-player-text">收聽電台推薦（經典電台腔）</span>
+                    </div>
                     <div class="product-meta">
                         <span class="product-price">NT$ 380 <span>/ 份</span></span>
-                        <button class="btn-card" onclick="openOrderModal('嘉義 陳主任麻辣牛腱', 380, 'single')">立即選購</button>
+                        <button class="btn-card" onclick="openOrderModal('嘉義 陳主任 ｜ 歡樂時光麻辣牛腱', 380, 'single')">立即選購</button>
                     </div>
                     <div class="artisan-seal">陳主任<br>印</div>
                 </div>
@@ -127,8 +147,12 @@
                     <img src="images/red_yeast.png" alt="台北 鄭藥師紅麴點心">
                 </div>
                 <div class="product-info">
-                    <h3>台北 鄭藥師紅麴點心 (大罐裝)</h3>
-                    <p class="product-desc">由鄭藥師結合中醫養生理念精心調製，採用天然發酵紅麴粉與健康燕麥烘焙而成。低油低鹽，是兼顧美味與日常保養的精緻養生點心。</p>
+                    <h3>台北 鄭藥師 ｜ 養身紅麴保健神器</h3>
+                    <p class="product-desc">送長輩最體面的健康伴手禮、天然清道夫養身神器。由鄭藥師用藥理標準把關古法發酵，採用優質紅麴菌與契作圓糯米天然釀製。</p>
+                    <div class="radio-broadcast-player" onclick="toggleRadioPlayer(this, 'zheng_redyeast')">
+                        <span class="radio-player-icon">📻</span>
+                        <span class="radio-player-text">收聽電台推薦（經典電台腔）</span>
+                    </div>
                     <div class="product-meta">
                         <span class="product-price">NT$ 280 <span>/ 罐</span></span>
                         <button class="btn-card" onclick="openOrderModal('台北 鄭藥師紅麴點心 (大罐裝)', 280, 'single')">立即選購</button>
@@ -142,18 +166,18 @@
     <!-- Subscriptions Section -->
     <section class="container" id="subscriptions">
         <div class="section-title">
-            <h2>祝文手作定期配送箱</h2>
+            <h2>歲時孝親雙週訂閱制</h2>
         </div>
         <div class="sub-banner">
             <div class="sub-banner-text">
-                <h3>每週/雙週 職人手作箱訂閱方案</h3>
-                <p>將職人們的溫慢手作美食以訂閱盒定期配送到家。週週或雙週低溫宅配到府，省去重複購買的繁瑣，讓生活常伴最純粹的在地味道。</p>
-                <p>方案 A：每週手作脆瓜箱 (月訂閱) - NT$ 600 / 月 (每週配送1大罐)</p>
-                <p>方案 B：雙週全麥饅頭箱 (月訂閱) - NT$ 320 / 月 (雙週配送1袋6顆裝)</p>
+                <h3>每逢初一十五 職人手作箱定期配送</h3>
+                <p>配合島嶼歲時節奏（初一、十五雙週收單機制），將職人們的限量手藝以自取點或超商物流定期配送。省去重複購買的繁瑣，為家人送上最安心的家常美味。</p>
+                <p>方案 A：雙週孝親老手藝箱 (月訂閱) - NT$ 980 / 月 (包含經典脆瓜、花生糖與養生紅麴，共創溫馨滋味)</p>
+                <p>方案 B：雙週慢活豐盛箱 (月訂閱) - NT$ 1,280 / 月 (包含麻辣牛腱、辣椒醬與老麵饅頭，餐桌豐盛解藥)</p>
             </div>
             <div style="display: flex; gap: 15px; flex-wrap: wrap;">
-                <button class="btn-primary" onclick="openOrderModal('每週手作脆瓜箱 (訂閱/月)', 600, 'subscription')">訂閱方案 A</button>
-                <button class="btn-primary" style="background: linear-gradient(135deg, var(--harvest-yellow), var(--temple-red));" onclick="openOrderModal('雙週全麥饅頭箱 (訂閱/月)', 320, 'subscription')">訂閱方案 B</button>
+                <button class="btn-primary" onclick="openOrderModal('方案 A：雙週孝親老手藝箱 (月訂閱)', 980, 'subscription')">訂閱方案 A</button>
+                <button class="btn-primary" style="background: linear-gradient(135deg, var(--harvest-yellow), var(--temple-red));" onclick="openOrderModal('方案 B：雙週慢活豐盛箱 (月訂閱)', 1280, 'subscription')">訂閱方案 B</button>
             </div>
         </div>
     </section>
@@ -161,10 +185,10 @@
     <!-- Newsletter/Notification Subscription -->
     <section class="container" id="newsletter" style="max-width: 600px; text-align: center;">
         <div class="section-title">
-            <h2>出爐動態第一手通知</h2>
+            <h2>初一十五 歲時預購通知</h2>
         </div>
         <div class="metric-card" style="padding: 40px; margin-top: -20px;">
-            <p style="margin-bottom: 25px; font-size: 15px; color: #555;">由於職人們皆是手工限量製作，當新鮮產品出爐或季節限定口味上市時，我們會第一時間通知您！</p>
+            <p style="margin-bottom: 25px; font-size: 15px; color: #555;">「鑄文選物」遵循初一、十五收單機制，限量手作，絕不囤積。當新一期開單或新品上架時，我們會第一時間通知您！</p>
             <form id="subscribe-form" onsubmit="handleSubscribe(event)">
                 <div class="form-group" style="text-align: left;">
                     <label for="sub-email">電子信箱</label>
@@ -174,7 +198,7 @@
                     <label for="sub-phone">手機號碼</label>
                     <input type="tel" id="sub-phone" class="form-control" placeholder="0912-345678" required>
                 </div>
-                <button type="submit" class="btn-primary" style="width: 100%; margin-top: 10px;">訂閱出爐通知</button>
+                <button type="submit" class="btn-primary" style="width: 100%; margin-top: 10px;">訂閱預購開單通知</button>
             </form>
             <div id="sub-status" style="margin-top: 15px; font-weight: bold; color: var(--temple-red); display: none;"></div>
         </div>
@@ -184,29 +208,29 @@
     <footer>
         <div class="footer-grid">
             <div class="footer-col">
-                <h4>關於 祝文</h4>
-                <p>「祝文」是一個致力於連結台灣社區職人長輩與手作美味的品牌。我們堅信，最純粹、無化學添加的古早手藝，是傳承地方記憶的最佳媒介。</p>
+                <h4>關於 鑄文選物</h4>
+                <p>「鑄文選物（Tsù-bûn Select）」致力於克服高齡微型創業的數位與物流高牆，發起一場讓長輩以手藝發揮價值的社會工程，在現代餐桌重新鑄造島嶼的手藝與記憶。</p>
             </div>
             <div class="footer-col">
                 <h4>快速連結</h4>
                 <ul>
-                    <li><a href="#products">手作美食</a></li>
-                    <li><a href="#subscriptions">溫馨訂閱</a></li>
-                    <li><a href="#newsletter">最新消息</a></li>
+                    <li><a href="#products">歲時案頭</a></li>
+                    <li><a href="#subscriptions">歲時孝親訂閱</a></li>
+                    <li><a href="#newsletter">出爐通知</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4>職人名冊</h4>
-                <p>桃園林媽媽手作脆瓜<br>
-                桃園映雪媽媽手工饅頭<br>
-                林口二哥手熬辣椒醬<br>
-                嘉義二姊香脆花生糖<br>
-                嘉義陳主任秘製牛腱<br>
-                台北鄭藥師養生紅麴</p>
+                <p>桃園林媽媽手作甘甜脆瓜<br>
+                桃園映雪媽媽手工老麵饅頭<br>
+                林口二哥純手工朝天椒醬<br>
+                嘉義二姊手工花生糖<br>
+                嘉義陳主任歡樂時光麻辣牛腱<br>
+                台北鄭藥師養身紅麴保健神器</p>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 祝文品牌工作坊. All rights reserved.</p>
+            <p>&copy; 2026 鑄文選物（Tsù-bûn Select）. All rights reserved.</p>
         </div>
     </footer>
 
@@ -280,6 +304,8 @@
             document.getElementById('order-total').innerText = 'NT$ ' + total;
         }
 
+        const isStaticHost = window.location.hostname.endsWith('github.io') || window.location.protocol === 'file:';
+
         async function handlePlaceOrder(event) {
             event.preventDefault();
             const customer_name = document.getElementById('cust-name').value;
@@ -299,6 +325,31 @@
                 type,
                 amount
             };
+            
+            if (isStaticHost) {
+                const orders = JSON.parse(localStorage.getItem('tsubun_orders') || '[]');
+                const prefix = type === 'subscription' ? 'SUB' : 'ORD';
+                const dateStr = new Date().toISOString().slice(0, 10).replace(/-/g, '');
+                const order_id = `${prefix}${dateStr}${(orders.length + 1).toString().padStart(3, '0')}`;
+                
+                const newOrder = {
+                    id: order_id,
+                    customer_name,
+                    phone,
+                    address,
+                    items: payload.items,
+                    type,
+                    amount,
+                    status: 'Pending',
+                    time: new Date().toISOString().slice(0, 19).replace('T', ' '),
+                    shipped_time: ''
+                };
+                orders.push(newOrder);
+                localStorage.setItem('tsubun_orders', JSON.stringify(orders));
+                alert('下單成功！（測試模擬）您的訂單編號為：' + order_id);
+                closeOrderModal();
+                return;
+            }
             
             try {
                 const response = await fetch('/api/order', {
@@ -324,6 +375,24 @@
             const phone = document.getElementById('sub-phone').value;
             const statusEl = document.getElementById('sub-status');
             
+            if (isStaticHost) {
+                const subs = JSON.parse(localStorage.getItem('tsubun_subscribers') || '[]');
+                const exists = subs.some(s => (email && s.email === email) || (phone && s.phone === phone));
+                if (!exists) {
+                    subs.push({
+                        email,
+                        phone,
+                        time: new Date().toISOString().slice(0, 19).replace('T', ' ')
+                    });
+                    localStorage.setItem('tsubun_subscribers', JSON.stringify(subs));
+                }
+                statusEl.innerText = '訂閱成功！（測試模擬）最新出爐通知將第一時間發送給您。';
+                statusEl.style.display = 'block';
+                document.getElementById('subscribe-form').reset();
+                setTimeout(() => statusEl.style.display = 'none', 5000);
+                return;
+            }
+            
             try {
                 const response = await fetch('/api/subscribe', {
                     method: 'POST',
@@ -342,6 +411,78 @@
             } catch (err) {
                 alert('網路錯誤，訂閱失敗！');
             }
+        }
+
+        // Radio Player Audio Logic
+        let activeAudio = null;
+        let activeBgm = null;
+        let activePlayerEl = null;
+
+        // Preload static sound effect
+        const staticAudio = new Audio('audio/radio_static.wav');
+        staticAudio.volume = 0.3;
+
+        async function toggleRadioPlayer(element, audioKey) {
+            // If already playing, stop it
+            if (element.classList.contains('playing')) {
+                stopAllAudio();
+                return;
+            }
+
+            // Stop current
+            stopAllAudio();
+
+            activePlayerEl = element;
+            activePlayerEl.classList.add('playing');
+            activePlayerEl.querySelector('.radio-player-text').innerText = '收音機開機中...';
+
+            try {
+                // Play analog static noise
+                await staticAudio.play();
+                
+                setTimeout(async () => {
+                    if (activePlayerEl !== element) return; // Guard
+
+                    // Play BGM
+                    activeBgm = new Audio('audio/radio_bgm.wav');
+                    activeBgm.volume = 0.12;
+                    activeBgm.loop = true;
+                    await activeBgm.play();
+
+                    // Play voice
+                    activeAudio = new Audio(`audio/${audioKey}.mp3`);
+                    activeAudio.volume = 0.95;
+                    
+                    activeAudio.addEventListener('ended', () => {
+                        stopAllAudio();
+                    });
+
+                    await activeAudio.play();
+                    activePlayerEl.querySelector('.radio-player-text').innerText = '電台熱烈推薦中 📻';
+                }, 800);
+            } catch (err) {
+                console.error("Audio playback error:", err);
+                activePlayerEl.querySelector('.radio-player-text').innerText = '播放失敗，請檢查音訊檔';
+                setTimeout(stopAllAudio, 2000);
+            }
+        }
+
+        function stopAllAudio() {
+            if (activeAudio) {
+                activeAudio.pause();
+                activeAudio = null;
+            }
+            if (activeBgm) {
+                activeBgm.pause();
+                activeBgm = null;
+            }
+            if (activePlayerEl) {
+                activePlayerEl.classList.remove('playing');
+                activePlayerEl.querySelector('.radio-player-text').innerText = '收聽電台推薦（經典電台腔）';
+                activePlayerEl = null;
+            }
+            staticAudio.pause();
+            staticAudio.currentTime = 0;
         }
     </script>
 </body>

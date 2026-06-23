@@ -1,14 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Noto+Serif+TC:wght@400;700;900&display=swap');
 
 :root {
-    --temple-red: #B22222;
+    --temple-red: #A30000;
     --harvest-yellow: #E6A15C;
-    --paper-white: #FDFBF7;
-    --ink-black: #2C2C2C;
-    --glass-bg: rgba(253, 251, 247, 0.96);
-    --glass-border: rgba(44, 44, 44, 0.12);
-    --shadow-light: rgba(44, 44, 44, 0.05);
-    --shadow-dark: rgba(44, 44, 44, 0.12);
+    --paper-white: #FAF9F6;
+    --ink-black: #1A1A1A;
+    --glass-bg: rgba(250, 249, 246, 0.96);
+    --glass-border: rgba(26, 26, 26, 0.12);
+    --shadow-light: rgba(26, 26, 26, 0.05);
+    --shadow-dark: rgba(26, 26, 26, 0.12);
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -780,4 +780,53 @@ tr:last-child td {
     border-radius: 3px;
     letter-spacing: 0.5px;
     text-align: center;
+}
+
+/* Radio Broadcast Player */
+.radio-broadcast-player {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(163, 0, 0, 0.04);
+    border: 1px dashed var(--temple-red);
+    padding: 10px 15px;
+    border-radius: 6px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: var(--transition);
+    user-select: none;
+}
+
+.radio-broadcast-player:hover {
+    background: rgba(163, 0, 0, 0.08);
+    transform: translateY(-1px);
+}
+
+.radio-player-icon {
+    font-size: 18px;
+    display: inline-block;
+}
+
+.radio-player-text {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--temple-red);
+    font-family: 'Noto Serif TC', serif;
+}
+
+/* Pulsing wave animation when playing */
+.radio-broadcast-player.playing {
+    background: rgba(163, 0, 0, 0.1);
+    border-style: solid;
+    box-shadow: 0 0 10px rgba(163, 0, 0, 0.15);
+}
+
+.radio-broadcast-player.playing .radio-player-icon {
+    animation: pulse 1.2s infinite alternate ease-in-out;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 0.8; }
+    100% { transform: scale(1.2) rotate(-5deg); opacity: 1; }
 }
